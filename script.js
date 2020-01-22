@@ -49,25 +49,40 @@ function setBackgroundAndGreeting() {
     }
 }
 
-// Get name.
+// Get name from localStorage.
 function getName() {
-    const localStorageName = localStorage.getItem("landing-page-name");
-    if (localStorageName === null) {
+    if (localStorage.getItem("landing-page-name") === null) {
         name.textContent = "[Enter name]";
     } else {
-        name.textContent = name;
+        name.textContent = localStorage.getItem("landing-page-name");
     }
 }
 
-// Get focus.
-function getFocus() {
-    const localStorageFocus = localStorage.getItem("landing-page-focus");
-    if (localStorageFocus === null) {
-        focus.textContent = "[Enter focus]";
+// Set name.
+function setName(e) {
+    if (e.type === "keypress") {
+        // Check if enter is pressed.
+        if (e.which === 13 || e.keyCode === 13) {
+            localStorage.setItem("landing-page-name", e.target.innerText);
+            name.blur();
+        }
     } else {
-        focus.textContent = name;
+        // Save to localStorage.
+        localStorage.setItem("landing-page-name", e.target.innerText);
     }
 }
+
+// Get focus from localStorage.
+function getFocus() {
+    if (localStorage.getItem("landing-page-focus") === null) {
+        focus.textContent = "[Enter focus]";
+    } else {
+        focus.textContent = localStorage.getItem("landing-page-focus");
+    }
+}
+
+name.addEventListener("keypress", setName);
+name.addEventListener("blur", setName);
 
 showTime();
 setBackgroundAndGreeting();
