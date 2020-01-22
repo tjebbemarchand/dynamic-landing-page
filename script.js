@@ -3,6 +3,8 @@ const greeting = document.querySelector("#greeting");
 const name = document.querySelector("#name");
 const focus = document.querySelector("#focus");
 
+const showAmPm = true;
+
 // Show time.
 function showTime() {
     let now = new Date();
@@ -17,7 +19,9 @@ function showTime() {
     hour = hour % 12 || 12;
 
     // Output time.
-    time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
+    time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)} ${
+        showAmPm ? amPm : ""
+    }`;
 
     // Call showTime every second.
     setTimeout(showTime, 1000);
