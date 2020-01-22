@@ -58,7 +58,7 @@ function getName() {
     }
 }
 
-// Set name.
+// Set name in localStorage.
 function setName(e) {
     if (e.type === "keypress") {
         // Check if enter is pressed.
@@ -81,8 +81,24 @@ function getFocus() {
     }
 }
 
+// Set focus in localStorage.
+function setFocus(e) {
+    if (e.type === "keypress") {
+        // Check if enter is pressed.
+        if (e.which === 13 || e.keyCode === 13) {
+            localStorage.setItem("landing-page-focus", e.target.innerText);
+            focus.blur();
+        }
+    } else {
+        // Save to localStorage.
+        localStorage.setItem("landing-page-focus", e.target.innerText);
+    }
+}
+
 name.addEventListener("keypress", setName);
 name.addEventListener("blur", setName);
+focus.addEventListener("keypress", setFocus);
+focus.addEventListener("blur", setFocus);
 
 showTime();
 setBackgroundAndGreeting();
