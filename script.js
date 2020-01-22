@@ -49,5 +49,27 @@ function setBackgroundAndGreeting() {
     }
 }
 
+// Get name.
+function getName() {
+    const localStorageName = localStorage.getItem("landing-page-name");
+    if (localStorageName === null) {
+        name.textContent = "[Enter name]";
+    } else {
+        name.textContent = name;
+    }
+}
+
+// Get focus.
+function getFocus() {
+    const localStorageFocus = localStorage.getItem("landing-page-focus");
+    if (localStorageFocus === null) {
+        focus.textContent = "[Enter focus]";
+    } else {
+        focus.textContent = name;
+    }
+}
+
 showTime();
 setBackgroundAndGreeting();
+getName();
+getFocus();
