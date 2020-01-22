@@ -21,3 +21,24 @@ body {
     height: 100vh;
     color: #000;
 }
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+#time {
+    font-size: 8rem;
+}
+
+@media (max-width: 700px) {
+    #time {
+        font-size: 6rem;
+    }
+}
