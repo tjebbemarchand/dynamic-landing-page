@@ -104,7 +104,11 @@ name.addEventListener("blur", setName);
 focus.addEventListener("keypress", setFocus);
 focus.addEventListener("blur", setFocus);
 
-showTime();
-setBackgroundAndGreeting();
-getName();
-getFocus();
+function init() {
+    showTime();
+    setBackgroundAndGreeting();
+    getName();
+    getFocus();
+}
+
+document.addEventListener("DOMContentLoaded", init);
